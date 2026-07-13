@@ -23,13 +23,13 @@ function CodeBlock({ code }: { code: string }) {
 
   return (
     <div className="relative rounded-lg border border-neutral-800 bg-neutral-950">
-      <pre className="p-4 pr-12 font-mono text-sm text-neutral-300 overflow-x-auto">
+      <pre className="p-3 sm:p-4 pr-10 sm:pr-12 font-mono text-xs sm:text-sm text-neutral-300 overflow-x-auto">
         {code}
       </pre>
       <button
         onClick={handleCopy}
         aria-label="Copy code"
-        className="absolute top-3 right-3 p-1.5 rounded-md hover:bg-neutral-900 transition-colors cursor-pointer"
+        className="absolute top-2 sm:top-3 right-2 sm:right-3 p-1.5 rounded-md hover:bg-neutral-900 transition-colors cursor-pointer"
       >
         {copied ? (
           <CheckIcon size={14} className="text-green-400" />
@@ -44,7 +44,7 @@ function CodeBlock({ code }: { code: string }) {
 export default function Docs() {
   return (
     <div className="min-h-screen bg-black text-white">
-      <nav className="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto">
+      <nav className="flex items-center justify-between px-4 sm:px-8 py-4 sm:py-6 max-w-7xl mx-auto">
         <a
           href="/"
           className="flex items-center gap-2 font-mono text-sm font-semibold"
@@ -52,7 +52,7 @@ export default function Docs() {
           <ShieldCheckIcon size={16} className="text-neutral-500" />
           callcheck
         </a>
-        <div className="flex items-center gap-6 text-sm text-neutral-400">
+        <div className="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm text-neutral-400">
           <a href="/docs" className="text-white">
             Docs
           </a>
@@ -66,15 +66,15 @@ export default function Docs() {
         </div>
       </nav>
 
-      <main className="max-w-3xl mx-auto px-8 py-16 space-y-16">
+      <main className="max-w-3xl mx-auto px-4 sm:px-8 py-12 sm:py-16 space-y-12 sm:space-y-16">
         <section>
-          <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center gap-2 mb-2 sm:mb-3">
             <RocketIcon size={20} className="text-neutral-500" />
-            <h1 className="font-sans text-4xl font-semibold tracking-tight">
+            <h1 className="font-sans text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight">
               Introduction
             </h1>
           </div>
-          <p className="text-neutral-400">
+          <p className="text-sm sm:text-base text-neutral-400">
             callcheck validates AI tool call responses against a schema and auto
             repairs the ones that fail. Built on Zod, works with any AI
             provider, free through Vercel AI Gateway.
@@ -84,9 +84,9 @@ export default function Docs() {
         <Separator className="bg-neutral-900" />
 
         <section>
-          <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center gap-2 mb-2 sm:mb-3">
             <DownloadIcon size={18} className="text-neutral-500" />
-            <h2 className="font-sans text-2xl font-semibold tracking-tight">
+            <h2 className="font-sans text-xl sm:text-2xl font-semibold tracking-tight">
               Install
             </h2>
           </div>
@@ -96,13 +96,13 @@ export default function Docs() {
         <Separator className="bg-neutral-900" />
 
         <section>
-          <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center gap-2 mb-2 sm:mb-3">
             <TerminalIcon size={18} className="text-neutral-500" />
-            <h2 className="font-sans text-2xl font-semibold tracking-tight">
+            <h2 className="font-sans text-xl sm:text-2xl font-semibold tracking-tight">
               Schema file
             </h2>
           </div>
-          <p className="text-neutral-400 mb-4">
+          <p className="text-sm sm:text-base text-neutral-400 mb-3 sm:mb-4">
             Describe the expected shape of a tool call response in a JSON file.
             Supports string, number, boolean, email, plus enums and number
             constraints.
@@ -120,25 +120,25 @@ export default function Docs() {
         <Separator className="bg-neutral-900" />
 
         <section>
-          <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center gap-2 mb-2 sm:mb-3">
             <TerminalIcon size={18} className="text-neutral-500" />
-            <h2 className="font-sans text-2xl font-semibold tracking-tight">
+            <h2 className="font-sans text-xl sm:text-2xl font-semibold tracking-tight">
               Run a check
             </h2>
           </div>
           <CodeBlock code="callcheck check --schema schema.json --response response.json" />
-          <p className="text-neutral-400 mt-4 mb-4">
+          <p className="text-sm sm:text-base text-neutral-400 mt-3 sm:mt-4 mb-3 sm:mb-4">
             A valid response returns:
           </p>
-          <Card className="border-neutral-800 bg-neutral-900 p-4 font-mono text-sm">
+          <Card className="border-neutral-800 bg-neutral-900 p-3 sm:p-4 font-mono text-xs sm:text-sm">
             <div className="text-green-400 flex items-center gap-2">
               <CheckIcon size={14} /> passed response matches schema
             </div>
           </Card>
-          <p className="text-neutral-400 mt-4 mb-4">
+          <p className="text-sm sm:text-base text-neutral-400 mt-3 sm:mt-4 mb-3 sm:mb-4">
             An invalid response returns:
           </p>
-          <Card className="border-neutral-800 bg-neutral-900 p-4 font-mono text-sm space-y-1">
+          <Card className="border-neutral-800 bg-neutral-900 p-3 sm:p-4 font-mono text-xs sm:text-sm space-y-1">
             <p className="text-red-400">
               ✘ failed response does not match schema
             </p>
@@ -150,19 +150,19 @@ export default function Docs() {
         <Separator className="bg-neutral-900" />
 
         <section>
-          <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center gap-2 mb-2 sm:mb-3">
             <WorkflowIcon size={18} className="text-neutral-500" />
-            <h2 className="font-sans text-2xl font-semibold tracking-tight">
+            <h2 className="font-sans text-xl sm:text-2xl font-semibold tracking-tight">
               Auto repair
             </h2>
           </div>
-          <p className="text-neutral-400 mb-4">
+          <p className="text-sm sm:text-base text-neutral-400 mb-3 sm:mb-4">
             Add --repair to send a failing response to a model for correction.
             Requires a free AI Gateway key, no separate model subscription
             needed.
           </p>
           <CodeBlock code="callcheck check --schema schema.json --response response.json --repair" />
-          <p className="text-neutral-400 mt-4 mb-4">
+          <p className="text-sm sm:text-base text-neutral-400 mt-3 sm:mt-4 mb-3 sm:mb-4">
             Set your key once per terminal session:
           </p>
           <CodeBlock code={`$env:AI_GATEWAY_API_KEY = "your-key-here"`} />
@@ -171,13 +171,13 @@ export default function Docs() {
         <Separator className="bg-neutral-900" />
 
         <section>
-          <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center gap-2 mb-2 sm:mb-3">
             <WorkflowIcon size={18} className="text-neutral-500" />
-            <h2 className="font-sans text-2xl font-semibold tracking-tight">
+            <h2 className="font-sans text-xl sm:text-2xl font-semibold tracking-tight">
               Wrap a tool once
             </h2>
           </div>
-          <p className="text-neutral-400 mb-4">
+          <p className="text-sm sm:text-base text-neutral-400 mb-3 sm:mb-4">
             In code, wrap any AI SDK style tool definition. Every call through
             it gets validated and repaired automatically after that, no extra
             code downstream.
@@ -195,13 +195,13 @@ const queryUser = validated(queryUserTool, {
         <Separator className="bg-neutral-900" />
 
         <section>
-          <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center gap-2 mb-2 sm:mb-3">
             <TerminalIcon size={18} className="text-neutral-500" />
-            <h2 className="font-sans text-2xl font-semibold tracking-tight">
+            <h2 className="font-sans text-xl sm:text-2xl font-semibold tracking-tight">
               Track failures
             </h2>
           </div>
-          <p className="text-neutral-400 mb-4">
+          <p className="text-sm sm:text-base text-neutral-400 mb-3 sm:mb-4">
             Every repair run gets logged locally to .callcheck/runs.json. See
             which fields and which models fail most.
           </p>
@@ -211,13 +211,13 @@ const queryUser = validated(queryUserTool, {
         <Separator className="bg-neutral-900" />
 
         <section>
-          <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center gap-2 mb-2 sm:mb-3">
             <WorkflowIcon size={18} className="text-neutral-500" />
-            <h2 className="font-sans text-2xl font-semibold tracking-tight">
+            <h2 className="font-sans text-xl sm:text-2xl font-semibold tracking-tight">
               Use it in CI
             </h2>
           </div>
-          <p className="text-neutral-400 mb-4">
+          <p className="text-sm sm:text-base text-neutral-400 mb-3 sm:mb-4">
             callcheck exits with a non zero code on failure, so it fits directly
             into a pipeline step.
           </p>
