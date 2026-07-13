@@ -1,0 +1,6 @@
+node_modules
+dist
+.callcheck
+.next
+.env
+.env.local

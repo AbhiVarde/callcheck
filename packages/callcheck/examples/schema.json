@@ -1,0 +1,6 @@
+{
+  "userId": "string",
+  "email": "email",
+  "plan": { "type": "enum", "values": ["free", "pro", "enterprise"] },
+  "status": { "type": "enum", "values": ["active", "suspended", "pending"] }
+}

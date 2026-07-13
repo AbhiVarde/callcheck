@@ -1,0 +1,8 @@
+{
+  "name": "callcheck-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
+}
